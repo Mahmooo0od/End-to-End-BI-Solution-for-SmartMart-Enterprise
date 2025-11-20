@@ -7,12 +7,12 @@
   DTS:CreatorName="ACER-PC\hp"
   DTS:DTSID="{D7AA789D-6131-4909-B8DA-134687FD1A22}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="108"
-  DTS:VersionGUID="{ACDF0D2A-6A3D-44B0-B73F-941ABE793F5A}">
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{FD8C4C2B-ADD5-43A4-8604-4667B645B5D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -160,7 +160,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="100"
+                      length="200"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Region]"
                       name="Region"
                       truncationRowDisposition="FailComponent">
@@ -204,6 +204,157 @@
               </outputs>
             </component>
             <component
+              refId="Package\Data Flow Task\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[BranchCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="BranchCode"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER]([REPLACE]([REPLACENULL]([TRIM](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchCode]}),""),"  "," "))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(REPLACE(REPLACENULL(TRIM(BranchCode),""),"  "," "))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[BranchName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="BranchName"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER]([REPLACE]([REPLACENULL]([TRIM](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]}),""),"  "," "))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(REPLACE(REPLACENULL(TRIM(BranchName),""),"  "," "))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER]([REPLACE]([REPLACENULL]([TRIM](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]}),""),"  "," "))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(REPLACE(REPLACENULL(TRIM(City),""),"  "," "))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Region"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER]([REPLACE]([REPLACENULL]([TRIM](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]}),""),"  "," "))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(REPLACE(REPLACENULL(TRIM(Region),""),"  "," "))</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\Multicast"
               componentClassID="Microsoft.Multicast"
               contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -225,17 +376,17 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]"
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]"
                   deleteOutputOnPathDetached="true"
-                  name="Multicast Output 3"
+                  name="Multicast Output 2"
                   synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]"
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]"
                   dangling="true"
                   deleteOutputOnPathDetached="true"
-                  name="Multicast Output 2"
+                  name="Multicast Output 3"
                   synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -257,7 +408,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[stg].[Branch_stage]</property>
+                  name="OpenRowset">[dwh].[DimBranch]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -330,7 +481,7 @@
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Region]"
                       cachedDataType="wstr"
-                      cachedLength="100"
+                      cachedLength="200"
                       cachedName="Region"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Region]" />
@@ -352,7 +503,7 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchName]"
                       dataType="wstr"
-                      length="100"
+                      length="200"
                       name="BranchName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
@@ -362,8 +513,12 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
                       dataType="wstr"
-                      length="100"
+                      length="200"
                       name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchKey]"
+                      dataType="i4"
+                      name="BranchKey" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -609,22 +764,27 @@
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
               name="Data Conversion Output"
               startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Multicast Output 1]"
               endId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
               name="Multicast Output 1"
               startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]" />
             <path
-              refId="Package\Data Flow Task.Paths[Multicast Output 3]"
-              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
-              name="Multicast Output 3"
-              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]" />
+              refId="Package\Data Flow Task.Paths[Multicast Output 2]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -2997,34 +3157,34 @@ from [dbo].[vw_customer]</property>
               startId="Package\DimCustomer\DCV_Customers_ToUnicode.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DimCustomer.Paths[Derived Column Output4]"
-              endId="Package\DimCustomer\DST_RowErrors_DST.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DimCustomer\DRV_DSTError_RowDesc.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimCustomer.Paths[Derived Column Output3]"
-              endId="Package\DimCustomer\DST_RowErrors_DCV.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DimCustomer\DRV_DCVError_RowDesc.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimCustomer.Paths[Derived Column Output5]"
-              endId="Package\DimCustomer\DCV_Customers_ToUnicode.Inputs[Data Conversion Input]"
-              name="Derived Column Output"
-              startId="Package\DimCustomer\DRV_Add_Segment.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimCustomer.Paths[Derived Column Output1]"
-              endId="Package\DimCustomer\DST_RowErrors_CMD.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DimCustomer\DRV_CMDError_RowDesc.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimCustomer.Paths[Derived Column Output]"
               endId="Package\DimCustomer\DST_DimCustomer.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\DimCustomer\DRV_Prepare_NewRows.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DimCustomer.Paths[Derived Column Output2]"
+              refId="Package\DimCustomer.Paths[Derived Column Output3]"
+              endId="Package\DimCustomer\DST_RowErrors_CMD.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimCustomer\DRV_CMDError_RowDesc.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimCustomer.Paths[Derived Column Output5]"
               endId="Package\DimCustomer\DST_RowErrors_LKP.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\DimCustomer\DRV_LKPError_RowDesc.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimCustomer.Paths[Derived Column Output1]"
+              endId="Package\DimCustomer\DST_RowErrors_DCV.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimCustomer\DRV_DCVError_RowDesc.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimCustomer.Paths[Derived Column Output]"
+              endId="Package\DimCustomer\DST_RowErrors_DST.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimCustomer\DRV_DSTError_RowDesc.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimCustomer.Paths[Derived Column Output2]"
+              endId="Package\DimCustomer\DCV_Customers_ToUnicode.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DimCustomer\DRV_Add_Segment.Outputs[Derived Column Output]" />
             <path
               refId="Package\DimCustomer.Paths[Lookup Error Output]"
               endId="Package\DimCustomer\DRV_LKPError_RowDesc.Inputs[Derived Column Input]"
@@ -5619,34 +5779,34 @@ FROM dbo.vw_product;</property>
               startId="Package\DimProduct\DCV_Products_ToUnicode.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DimProduct.Paths[Derived Column Output4]"
-              endId="Package\DimProduct\DST_RowErrors_CMD.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DimProduct\DRV_CommandError_RowDesc.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimProduct.Paths[Derived Column Output3]"
-              endId="Package\DimProduct\DST_DimProduct.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DimProduct\DRV_Prepare_NewRows.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimProduct.Paths[Derived Column Output5]"
-              endId="Package\DimProduct\DST_RowErrors_LKP.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DimProduct\DRV_LookupError_RowDesc.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimProduct.Paths[Derived Column Output1]"
-              endId="Package\DimProduct\DST_RowErrors_DST.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\DimProduct\DRV_DestinationError_RowDesc.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DimProduct.Paths[Derived Column Output]"
               endId="Package\DimProduct\DST_RowErrors_DCV.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\DimProduct\DRV_DataConversionError_RowDesc.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DimProduct.Paths[Derived Column Output2]"
+              refId="Package\DimProduct.Paths[Derived Column Output3]"
+              endId="Package\DimProduct\DST_RowErrors_DST.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimProduct\DRV_DestinationError_RowDesc.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimProduct.Paths[Derived Column Output5]"
               endId="Package\DimProduct\LKP_DimProduct.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\DimProduct\DRV_Add_TechnicalColumns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimProduct.Paths[Derived Column Output1]"
+              endId="Package\DimProduct\DST_DimProduct.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimProduct\DRV_Prepare_NewRows.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimProduct.Paths[Derived Column Output]"
+              endId="Package\DimProduct\DST_RowErrors_CMD.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimProduct\DRV_CommandError_RowDesc.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimProduct.Paths[Derived Column Output2]"
+              endId="Package\DimProduct\DST_RowErrors_LKP.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimProduct\DRV_LookupError_RowDesc.Outputs[Derived Column Output]" />
             <path
               refId="Package\DimProduct.Paths[Lookup Error Output]"
               endId="Package\DimProduct\DRV_LookupError_RowDesc.Inputs[Derived Column Input]"
@@ -5776,11 +5936,11 @@ FROM dbo.vw_product;</property>
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="130,42"
           Id="Package\Data Flow Task\Row Count"
-          TopLeft="62,180" />
+          TopLeft="96,291" />
         <NodeLayout
           Size="171,42"
           Id="Package\Data Flow Task\OLE DB Destination"
@@ -5788,7 +5948,7 @@ FROM dbo.vw_product;</property>
         <NodeLayout
           Size="120,42"
           Id="Package\Data Flow Task\Multicast"
-          TopLeft="278.777777777778,106" />
+          TopLeft="358.777777777778,233" />
         <NodeLayout
           Size="150,42"
           Id="Package\Data Flow Task\OLE DB Source"
@@ -5796,137 +5956,173 @@ FROM dbo.vw_product;</property>
         <NodeLayout
           Size="156,42"
           Id="Package\Data Flow Task\Data Conversion"
-          TopLeft="506.5,213.055555555556" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="340.388888888889,80">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Multicast Output 3]"
-          TopLeft="357.444444444444,148">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="227.055555555556,65.0555555555555"
-              Start="0,0"
-              End="227.055555555556,57.5555555555555">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5358187134503" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5358187134503"
-                    Point2="0,26.5358187134503"
-                    Point3="4,26.5358187134503" />
-                  <mssgle:LineSegment
-                    End="223.055555555556,26.5358187134503" />
-                  <mssgle:CubicBezierSegment
-                    Point1="223.055555555556,26.5358187134503"
-                    Point2="227.055555555556,26.5358187134503"
-                    Point3="227.055555555556,30.5358187134503" />
-                  <mssgle:LineSegment
-                    End="227.055555555556,57.5555555555555" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="395.5,147.055555555556" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Multicast Output 1]"
-          TopLeft="338.777777777778,148">
+          TopLeft="358.777777777778,254">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-211.777777777778,32"
+              EndConnector="-132.777777777778,58"
               Start="0,0"
-              End="-211.777777777778,24.5">
+              End="-125.277777777778,58">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12" />
+                    End="-62.388888888889,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12"
-                    Point2="0,16"
-                    Point3="-4,16" />
+                    Point1="-62.388888888889,0"
+                    Point2="-66.388888888889,0"
+                    Point3="-66.388888888889,4" />
                   <mssgle:LineSegment
-                    End="-207.777777777778,16" />
+                    End="-66.388888888889,54" />
                   <mssgle:CubicBezierSegment
-                    Point1="-207.777777777778,16"
-                    Point2="-211.777777777778,16"
-                    Point3="-211.777777777778,20" />
+                    Point1="-66.388888888889,54"
+                    Point2="-66.388888888889,58"
+                    Point3="-70.388888888889,58" />
                   <mssgle:LineSegment
-                    End="-211.777777777778,24.5" />
+                    End="-125.277777777778,58" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Data Flow Task\Derived Column"
+          TopLeft="184,95" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="267,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-6,36"
+              Start="0,0"
+              End="-6,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-2,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-2,0"
+                    Point2="-6,0"
+                    Point3="-6,4" />
+                  <mssgle:LineSegment
+                    End="-6,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="338,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.5,52.055555555556"
+              Start="0,0"
+              End="50,52.055555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.75,0"
+                    Point2="28.75,0"
+                    Point3="28.75,4" />
+                  <mssgle:LineSegment
+                    End="28.75,48.055555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.75,48.055555555556"
+                    Point2="28.75,52.055555555556"
+                    Point3="32.75,52.055555555556" />
+                  <mssgle:LineSegment
+                    End="50,52.055555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="584.5,255.055555555556">
+          TopLeft="473.5,189.055555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-74.3333333333333,52.7222222222222"
+              EndConnector="-54.722222222222,43.944444444444"
               Start="0,0"
-              End="-74.3333333333333,45.2222222222222">
+              End="-54.722222222222,36.444444444444">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3611111111111" />
+                    End="0,17.972222222222" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.3611111111111"
-                    Point2="0,26.3611111111111"
-                    Point3="-4,26.3611111111111" />
+                    Point1="0,17.972222222222"
+                    Point2="0,21.972222222222"
+                    Point3="-4,21.972222222222" />
                   <mssgle:LineSegment
-                    End="-70.3333333333333,26.3611111111111" />
+                    End="-50.722222222222,21.972222222222" />
                   <mssgle:CubicBezierSegment
-                    Point1="-70.3333333333333,26.3611111111111"
-                    Point2="-74.3333333333333,26.3611111111111"
-                    Point3="-74.3333333333333,30.3611111111111" />
+                    Point1="-50.722222222222,21.972222222222"
+                    Point2="-54.722222222222,21.972222222222"
+                    Point3="-54.722222222222,25.972222222222" />
                   <mssgle:LineSegment
-                    End="-74.3333333333333,45.2222222222222" />
+                    End="-54.722222222222,36.444444444444" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 2]"
+          TopLeft="418.777777777778,275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.388888888889,32.777777777778"
+              Start="0,0"
+              End="91.388888888889,25.277777777778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.388888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.388888888889"
+                    Point2="0,16.388888888889"
+                    Point3="4,16.388888888889" />
+                  <mssgle:LineSegment
+                    End="87.388888888889,16.388888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.388888888889,16.388888888889"
+                    Point2="91.388888888889,16.388888888889"
+                    Point3="91.388888888889,20.388888888889" />
+                  <mssgle:LineSegment
+                    End="91.388888888889,25.277777777778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6255,7 +6451,7 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-2.10805338541666,28.5322195704057,96.3827734375,11.609375"
+              BoundingBox="-2.10805338541665,28.5322195704057,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6297,108 +6493,6 @@ FROM dbo.vw_product;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCustomer.Paths[Derived Column Output5]"
-          TopLeft="351.5,118">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23.5,27"
-              Start="0,0"
-              End="23.5,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.5"
-                    Point2="0,13.5"
-                    Point3="4,13.5" />
-                  <mssgle:LineSegment
-                    End="19.5,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.5,13.5"
-                    Point2="23.5,13.5"
-                    Point3="23.5,17.5" />
-                  <mssgle:LineSegment
-                    End="23.5,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DimCustomer.Paths[Derived Column Output4]"
-          TopLeft="117,664">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-15,29"
-              Start="0,0"
-              End="-15,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5"
-                    Point2="0,14.5"
-                    Point3="-4,14.5" />
-                  <mssgle:LineSegment
-                    End="-11,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11,14.5"
-                    Point2="-15,14.5"
-                    Point3="-15,18.5" />
-                  <mssgle:LineSegment
-                    End="-15,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DimCustomer.Paths[Derived Column Output3]"
-          TopLeft="105.5,128">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14.5,31"
-              Start="0,0"
-              End="-14.5,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5"
-                    Point2="0,15.5"
-                    Point3="-4,15.5" />
-                  <mssgle:LineSegment
-                    End="-10.5,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.5,15.5"
-                    Point2="-14.5,15.5"
-                    Point3="-14.5,19.5" />
-                  <mssgle:LineSegment
-                    End="-14.5,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DimCustomer.Paths[Derived Column Output2]"
           TopLeft="119,274">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6432,7 +6526,29 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimCustomer.Paths[Derived Column Output1]"
+          Id="Package\DimCustomer.Paths[Derived Column Output4]"
+          TopLeft="354.75,587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimCustomer.Paths[Derived Column Output3]"
           TopLeft="664.75,473">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6454,19 +6570,99 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimCustomer.Paths[Derived Column Output]"
-          TopLeft="354.75,587">
+          Id="Package\DimCustomer.Paths[Derived Column Output2]"
+          TopLeft="351.5,118">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34"
+              EndConnector="23.5,27"
               Start="0,0"
-              End="0,26.5">
+              End="23.5,19.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5" />
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="4,13.5" />
+                  <mssgle:LineSegment
+                    End="19.5,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.5,13.5"
+                    Point2="23.5,13.5"
+                    Point3="23.5,17.5" />
+                  <mssgle:LineSegment
+                    End="23.5,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimCustomer.Paths[Derived Column Output1]"
+          TopLeft="105.5,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,31"
+              Start="0,0"
+              End="-14.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,15.5"
+                    Point2="-14.5,15.5"
+                    Point3="-14.5,19.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimCustomer.Paths[Derived Column Output]"
+          TopLeft="117,664">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15,29"
+              Start="0,0"
+              End="-15,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="-4,14.5" />
+                  <mssgle:LineSegment
+                    End="-11,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11,14.5"
+                    Point2="-15,14.5"
+                    Point3="-15,18.5" />
+                  <mssgle:LineSegment
+                    End="-15,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7017,7 +7213,7 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimProduct.Paths[Derived Column Output2]"
+          Id="Package\DimProduct.Paths[Derived Column Output5]"
           TopLeft="548.666666666667,131">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7051,7 +7247,7 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimProduct.Paths[Derived Column Output]"
+          Id="Package\DimProduct.Paths[Derived Column Output4]"
           TopLeft="138.5,201">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7085,7 +7281,7 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimProduct.Paths[Derived Column Output1]"
+          Id="Package\DimProduct.Paths[Derived Column Output3]"
           TopLeft="133,675">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7119,7 +7315,7 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimProduct.Paths[Derived Column Output5]"
+          Id="Package\DimProduct.Paths[Derived Column Output2]"
           TopLeft="218.5,343">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7153,7 +7349,7 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimProduct.Paths[Derived Column Output3]"
+          Id="Package\DimProduct.Paths[Derived Column Output1]"
           TopLeft="410.5,604">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7187,7 +7383,7 @@ FROM dbo.vw_product;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DimProduct.Paths[Derived Column Output4]"
+          Id="Package\DimProduct.Paths[Derived Column Output]"
           TopLeft="736.5,495">
           <EdgeLayout.Curve>
             <mssgle:Curve

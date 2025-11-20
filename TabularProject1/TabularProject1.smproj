@@ -12,11 +12,11 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
     <OutputPath>bin\</OutputPath>
-    <DeploymentServerName>ACER-PC\TABULAR</DeploymentServerName>
+    <DeploymentServerName>ACER-PC\SSAS_TABULAR</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Unknown</DeploymentServerVersion>
-    <DeploymentServerDatabase>SmartMart_SSAS_Tabular</DeploymentServerDatabase>
-    <DeploymentServerCubeName>Model</DeploymentServerCubeName>
+    <DeploymentServerDatabase>SmartMart_DWH</DeploymentServerDatabase>
+    <DeploymentServerCubeName>SmartMart_Model</DeploymentServerCubeName>
     <DeploymentOptionProcessing>DoNotProcess</DeploymentOptionProcessing>
     <DeploymentOptionTransactionalDeployment>True</DeploymentOptionTransactionalDeployment>
     <DeploymentOptionADALCache>Default</DeploymentOptionADALCache>

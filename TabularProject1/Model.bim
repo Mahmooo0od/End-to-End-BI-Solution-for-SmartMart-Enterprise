@@ -20,7 +20,8 @@
           "AuthenticationKind": "ServiceAccount",
           "kind": "SQL",
           "path": "acer-pc;SmartMart_DWH",
-          "EncryptConnection": false
+          "EncryptConnection": false,
+          "PrivacySetting": "Public"
         }
       }
     ],
