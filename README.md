@@ -146,19 +146,6 @@ Pipeline structure:
 
 ---
 
-## 📁 Project Structure
-
-
-SmartMart_DWH/
-│── SmartMart_ETL/ → SSIS Packages
-│── SmartMart_SSAS/ → SSAS Tabular Model
-│── SmartMart_SSRS/ → SSRS .rdl Reports
-│── SmartMart_Dashboard.pbix → Power BI Final Dashboard
-│── docs/ → Screenshots
-│── README.md
-
-
----
 
 ## 🔧 Technologies
 
@@ -206,19 +193,56 @@ Tags applied:
 
 ---
 
-## 📸 Screenshots
+## 📸 Project Screens
 
-### Dashboard – Page 1
-![Dashboard](./docs/SmartMart_Dashboard_1.png)
+Below are all solution screenshots included in the `/Project_Screens` folder for full documentation and project demonstration.
 
-### Dashboard – Page 2
-![Dashboard 2](./docs/SmartMart_Dashboard_2.png)
+### 🔹 ETL – SSIS Packages
+- **Branch Package**  
+  ![Branch Package](Project_Screens/Branch_Package.png)
 
-### Products Report
-![Products](./docs/Products_Report.png)
+- **Customer Package**  
+  ![Customer Package](Project_Screens/Customer_Package.png)
 
-### Branches Report
-![Branches](./docs/Branches_Report.png)
+- **Product Package**  
+  ![Product Package](Project_Screens/Product_Package.png)
+
+- **Fact Package**  
+  ![Fact Package](Project_Screens/Fact_Package.png)
+
+- **Dimension Tables Control Flow**  
+  ![Dimension Tables Control Flow](Project_Screens/Diminsion_Tables_Control_Flow.png)
+
+---
+
+### 🔹 SSAS – Tabular Model & Measures
+- **SSAS Tabular Screen**  
+  ![SSAS Tabular Screen](Project_Screens/SSAS_Tabulor_Screen.png)
+
+- **SSAS Measures**  
+  ![SSAS Measures](Project_Screens/SSAS_Measures.png)
+
+---
+
+### 🔹 SSRS – Reports
+- **Branch Report**  
+  ![Branch Report](Project_Screens/Branch_Report.png)
+
+- **Customers Report**  
+  ![Customers Report](Project_Screens/Customers_Report.png)
+
+- **Products Report**  
+  ![Products Report](Project_Screens/Products_Report.png)
+
+---
+
+### 🔹 Power BI Dashboards
+- **Smart Mart Dashboard – Screen 1**  
+  ![Dashboard 1](Project_Screens/Smart_Mart_Dashboard_1.png)
+
+- **Smart Mart Dashboard – Screen 2**  
+  ![Dashboard 2](Project_Screens/Smart_Mart_Dashboard_2.png)
+
 
 ---
 
